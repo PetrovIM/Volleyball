@@ -20,14 +20,15 @@
     </nav>
 </div>
 
-<div class="container">
-    <form action="/login" method="post">
+<main class="container">
+    <h1>Check in</h1>
+    <form action="/reg" method="post">
         <input type="text" name="username" class="from-control" placeholder="Enter a name"><br>
         <input type="password" name="password" class="from-control" placeholder="Enter a password"><br>
-        <input type="hidden" name="_csrf" value="${_csrf.token}">
-        <input type="submit" value="Sign In" class="btn btn-success">
+        <input type="email" name="email" class="from-control" placeholder="Enter an email"><br>
+        <input type="submit" value="Check in" class="btn btn-success">
     </form>
-</div>
+</main>
 
 <footer class="pt-4 my-md-5 pt-md-5 border-top">
     <div class="row">
