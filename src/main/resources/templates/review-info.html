@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>{{#reviews}}{{title}}{{/reviews}}</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+<header th:insert="blocks/header :: header"></header>
+
+<div class="container mt-5">
+    {{#reviews}}
+        <h3>{{title}}</h3>
+        <p>{{text}}</p>
+        <a class="btn btn-danger" href="/reviews/{{id}}/delete">Delete</a><br><br>
+        <a class="btn btn-warning" href="/reviews/{{id}}/update">Update</a>
+    {{/reviews}}
+
+</div>
+<header th:replace="blocks/footer :: footer"></header>
+</body>
+</html>

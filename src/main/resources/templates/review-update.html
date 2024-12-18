@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>{{#reviews}}{{title}}{{/reviews}}</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+<header th:insert="blocks/header :: header"></header>
+
+<div class="container mt-5">
+    <h1>Update title "{{#reviews}}{{title}}{{/reviews}}"</h1>
+    {{#reviews}}
+        <form method="post">
+            <input type="text" value="{{title}}" name="title" placeholder="Enter title" class="form-control"><br>
+            <textarea name="text" placeholder="Enter title" class="form-control">{{text}}</textarea><br>
+            <button type="submit" class="btn btn-success">Update</button>
+        </form>
+    {{/reviews}}
+</div>
+<header th:replace="blocks/footer :: footer"></header>
+</body>
+</html>
