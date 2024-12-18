@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="${reviews[0].title}" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+<header th:insert="~{blocks/header :: header}"></header>
+
+<div class="container mt-5">
+    <div th:each="rev:${reviews}">
+        <h3 th:text="${rev.title}" />
+        <p th:text="${rev.text}" />
+        <a class="btn btn-danger" th:href="@{/reviews/} + ${rev.id} +@{/delete}">Delete</a><br><br>
+        <a class="btn btn-warning" th:href="@{/reviews/} + ${rev.id} +@{/update}">Update</a>
+    </div>
+</div>
+<header th:replace="~{blocks/footer :: footer}"></header>
+</body>
+</html>
