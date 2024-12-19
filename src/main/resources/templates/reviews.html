@@ -1,31 +1,30 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>{{title}}</title>
+    <title th:text="${title}"/>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-<header th:insert="blocks/header :: header"></header>
+<header th:insert="~{blocks/header :: header}"></header>
 
 <div class="container mt-5">
-    <h1>{{title}}</h1>
+    <h1 th:text="${title}"/>
 
-    <form action="reviews/add" method="post">
+    <form th:action="@{/reviews/add}" method="post">
         <input type="text" name="title" placeholder="Enter title" class="form-control"><br>
         <textarea name="text" placeholder="Enter title" class="form-control"></textarea><br>
-        <input type="hidden" name="_csrf" value="%{_csrf.token}">
         <button type="submit" class="btn btn-success">Add</button>
     </form>
     <h3 class="mt-2">All feedback</h3>
-    {{#reviews}}
-        <h3 class="mt-2">{{title}}</h3>
-        <p>{{text}}</p>
-        <a class="btn btn-warning" href="/reviews/{{id}}">Detail</a>
-    {{/reviews}}
 
+    <div th:each="row : ${reviews}">
+        <h3 class="mt-2" th:text="${row.title}" />
+        <p th:text="${row.text}" />
+        <a class="btn btn-warning" th:href="@{/reviews/} + ${row.id}">Detail</a>
+    </div>
 </div>
-<header th:replace="blocks/footer :: footer"></header>
+<header th:replace="~{blocks/footer :: footer}"></header>
 </body>
 </html>

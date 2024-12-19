@@ -11,5 +11,10 @@
         <a class="me-3 py-2 link-body-emphasis text-decoration-none" href="/about">About</a>
         <a class="me-3 py-2 link-body-emphasis text-decoration-none" href="/reviews">Feedback</a>
     </nav>
+    <a href="/reg" class="btn btn-success mr-2">Registration</a>
+    <a href="/login" class="btn btn-warning mr-2">Login</a>
+    <form th:action="@{/logout}" method="post">
+        <input type="submit" class="btn btn-danger" value="Sign Out"/>
+    </form>
 </div>
 </div>

@@ -7,11 +7,11 @@
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-<header th:insert="blocks/header :: header"></header>
+<header th:insert="~{blocks/header :: header}"></header>
 
 <main class="container">
     <h1>Check in</h1>
-    <form action="/reg" method="post">
+    <form th:action="@{/reg}" method="post">
         <input type="text" name="username" class="from-control" placeholder="Enter a name"><br>
         <input type="password" name="password" class="from-control" placeholder="Enter a password"><br>
         <input type="email" name="email" class="from-control" placeholder="Enter an email"><br>
@@ -19,6 +19,6 @@
     </form>
 </main>
 
-<header th:replace="blocks/footer :: footer"></header>
+<header th:replace="~{blocks/footer :: footer}"></header>
 </body>
 </html>
