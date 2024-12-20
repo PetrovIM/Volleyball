@@ -6,6 +6,7 @@ import com.example.demo.models.User;
 import com.example.demo.repo.ReviewRepository;
 import com.example.demo.repo.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -45,8 +46,8 @@ public class   MainController {
     }
 
     @PostMapping("/reviews/add")
-    public String reviewsAdd(@RequestParam String title, @RequestParam String text, Model model){
-        Review review = new Review(title, text);
+    public String reviewsAdd(@AuthenticationPrincipal User user, @RequestParam String title, @RequestParam String text, Model model){
+        Review review = new Review(title, text, user);
         reviewRepository.save(review);
         return "redirect:/reviews";
     }

@@ -22,6 +22,7 @@
     <div th:each="row : ${reviews}">
         <h3 class="mt-2" th:text="${row.title}" />
         <p th:text="${row.text}" />
+        <p><b>Author: </b><span th:text="${row.author.username}"/></p>
         <a class="btn btn-warning" th:href="@{/reviews/} + ${row.id}">Detail</a>
     </div>
 </div>

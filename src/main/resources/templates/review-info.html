@@ -13,6 +13,7 @@
     <div th:each="rev:${reviews}">
         <h3 th:text="${rev.title}" />
         <p th:text="${rev.text}" />
+        <p><b>Author: </b><span th:text="${rev.author.username}"/></p>
         <a class="btn btn-danger" th:href="@{/reviews/} + ${rev.id} +@{/delete}">Delete</a><br><br>
         <a class="btn btn-warning" th:href="@{/reviews/} + ${rev.id} +@{/update}">Update</a>
     </div>
